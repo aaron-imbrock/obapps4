@@ -29,7 +29,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 """
-version = "0.3.0"
+
+from importlib.metadata import version as _pkg_version
+version = _pkg_version("obapps4")
 
 import sys
 from xml.dom.minidom import parse

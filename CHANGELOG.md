@@ -1,3 +1,12 @@
+#### 0.4.0 (2026-05-30):
+* Version is now read dynamically from package metadata via `importlib.metadata`; `pyproject.toml` is the single source of truth for the version number
+
+#### 0.3.0 (2026-05-30):
+* Added Aaron Imbrock as copyright holder in license text and About dialog
+* Updated About dialog: program name, authors, and website now reflect the obapps4 fork
+* Fixed window title displayed as "OBApps3" instead of "OBApps4"
+* Updated README with `uv tool upgrade obapps4` instructions for updating an installed tool
+
 #### 0.2.7 (2026-05-23):
 * Fixed build requirements documentation: libgirepository-2.0-dev required for PyGObject 3.56.3
 * Updated README to reflect corrected build dependencies

@@ -1,3 +1,13 @@
+#### 0.2.7 (2026-05-23):
+* Fixed build requirements documentation: libgirepository-2.0-dev required for PyGObject 3.56.3
+* Updated README to reflect corrected build dependencies
+
+#### 0.2.6 (2026-05-23):
+* Rewrote GUI from wxPython to PyGObject/GTK3; removes wx dependency entirely
+* Migrated packaging from distutils/setup.py to pyproject.toml with hatchling build backend
+* Project renamed to obapps4 and restructured as an installable Python package
+* Install via `uv tool install`; console script `obapps` replaces the standalone script
+
 #### 0.2.5 (2022-03-29):
 * Added "_OB_APP_TITLE" property
 

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "obapps4"
+version = "0.2.7"
+description = "Graphical editor for Openbox application settings"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Aaron Imbrock", email = "aimbrock@gmail.com" },
+    { name = "Eric Bohlman", email = "ericbohlman@gmail.com" },
+    { name = "gcurse", email = "gcurse@web.de" },
+]
+requires-python = ">=3.9"
+dependencies = [
+    "PyGObject>=3.36",
+    "python-xlib>=0.29",
+]
+
+[project.urls]
+Homepage = "https://github.com/aaron-imbrock/obapps4"
+
+[project.scripts]
+obapps = "obapps4.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["obapps4"]

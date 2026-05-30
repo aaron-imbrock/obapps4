@@ -6,6 +6,7 @@ MIT License
 
 Copyright (c) 2010 Eric Bohlman
 Copyright (c) 2020 gcurse (github.com/gCurse)
+Copyright (c) 2026 Aaron Imbrock
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -28,7 +29,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 """
-version = "0.2.6"
+version = "0.3.0"
 
 import sys
 from xml.dom.minidom import parse
@@ -530,14 +531,14 @@ class WLFrame(Gtk.Window):
 
     def _on_about(self, button):
         dlg = Gtk.AboutDialog(parent=self)
-        dlg.set_program_name("OBApps3")
+        dlg.set_program_name("OBApps4")
         dlg.set_version(version)
         dlg.set_comments("Openbox Application Settings Editor")
-        dlg.set_copyright("(C) 2010 Eric Bohlman\n(C) 2020 gcurse (github.com/gCurse)")
-        dlg.set_authors(["gcurse <gcurse@web.de>"])
+        dlg.set_copyright("(C) 2010 Eric Bohlman\n(C) 2020 gcurse (github.com/gCurse)\n(C) 2026 Aaron Imbrock (github.com/aimbrock)")
+        dlg.set_authors(["Aaron Imbrock <aimbrock@gmail.com>"])
         dlg.set_license(License)
-        dlg.set_website("https://github.com/gCurse/obapps3")
-        dlg.set_website_label("OBApps3 home page")
+        dlg.set_website("https://github.com/aaron-imbrock/obapps4")
+        dlg.set_website_label("OBApps4 home page")
         dlg.run()
         dlg.destroy()
 

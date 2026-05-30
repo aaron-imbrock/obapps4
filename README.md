@@ -1,6 +1,6 @@
 # obapps4
 
-A up to date graphical editor for the Openbox window manager's per-application settings (`rc.xml`).
+An updated graphical editor for the Openbox window manager's per-application settings (`rc.xml`).
 
 ## Setup
 

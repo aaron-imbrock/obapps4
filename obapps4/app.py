@@ -480,21 +480,21 @@ class OBAppsModel:
 
 
 HELP_TEXT = """\
-<span size="large" weight="bold">Welcome to OBApps4 Help</span>
+<span size="large" weight="bold">OBApps4 Help</span>
 
 <b>Overview</b>
 
-OBApps4 manages per-application settings for the Openbox window manager, stored \
-in the &lt;applications&gt; section of rc.xml. Each row matches one window rule; \
+OBApps4 manages per-application settings for the Openbox window manager, stored
+in the &lt;applications&gt; section of rc.xml. Each row matches one window rule;
 Openbox applies all matching rules in order, so placement matters.
 
-Use the Pick button to click a running window and auto-fill its identity fields \
-(Name, Class, Role, Title, Type). Leave any field blank to match anything. \
+Use the Pick button to click a running window and auto-fill its identity fields
+(Name, Class, Role, Title, Type). Leave any field blank to match anything.
 Wildcards * and ? are supported in name, class, role, and title fields.
 
-<b>Settings</b>
+<b>Application Fields</b>
 
-<b>Focus:</b> Whether Openbox tries to give the window focus when it appears. \
+<b>Focus:</b> Whether Openbox tries to give the window focus when it appears.
 Setting Yes does not guarantee focus; some restrictions may apply.
 
 <b>Iconize:</b> Make the window iconified (minimized) when it appears, or not.
@@ -503,23 +503,23 @@ Setting Yes does not guarantee focus; some restrictions may apply.
 
 <b>Fullscreen:</b> Make the window fullscreen when it appears.
 
-<b>Maximize:</b> Horizontal, Vertical, or Both. \
+<b>Maximize:</b> Horizontal, Vertical, or Both.
 Note: "Both" is stored as "yes" in rc.xml.
 
 <b>Layer:</b> Set the stacking layer: Above, Normal, or Below.
 
-<b>Position:</b> Where the window opens. X and Y accept a pixel value or "center"; \
-negative values measure from the right or bottom edge. \
-Both X and Y must be set for position to take effect. \
-Force overrides applications that ignore position hints. \
+<b>Position:</b> Where the window opens. X and Y accept a pixel value or "center";
+negative values measure from the right or bottom edge.
+Both X and Y must be set for position to take effect.
+Force overrides applications that ignore position hints.
 Monitor specifies the target display (1 = first, or "mouse").
 
-<b>Desktop:</b> Which desktop the window opens on. 1 is the first desktop; \
+<b>Desktop:</b> Which desktop the window opens on. 1 is the first desktop;
 use "all" to show on all desktops.
 
 <b>Skip pager:</b> Ask not to be shown in pagers.
 
-<b>Skip taskbar:</b> Ask not to be shown in taskbars; \
+<b>Skip taskbar:</b> Ask not to be shown in taskbars;
 window cycling (Alt+Tab) will also skip the window.
 
 Click Apply to save changes to rc.xml and signal Openbox to reload immediately."""

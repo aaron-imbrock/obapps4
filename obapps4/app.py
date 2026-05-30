@@ -29,7 +29,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 """
-version = "0.3.0"
+
+from importlib.metadata import version as _pkg_version
+version = _pkg_version("obapps4")
 
 import sys
 from xml.dom.minidom import parse
@@ -477,6 +479,90 @@ class OBAppsModel:
                     n.nodeValue = val
 
 
+HELP_TEXT = """\
+<span size="large" weight="bold">Welcome to OBApps4 Help</span>
+
+<b>Overview</b>
+
+OBApps4 manages per-application settings for the Openbox window manager, stored \
+in the &lt;applications&gt; section of rc.xml. Each row matches one window rule; \
+Openbox applies all matching rules in order, so placement matters.
+
+Use the Pick button to click a running window and auto-fill its identity fields \
+(Name, Class, Role, Title, Type). Leave any field blank to match anything. \
+Wildcards * and ? are supported in name, class, role, and title fields.
+
+<b>Settings</b>
+
+<b>Focus:</b> Whether Openbox tries to give the window focus when it appears. \
+Setting Yes does not guarantee focus; some restrictions may apply.
+
+<b>Iconize:</b> Make the window iconified (minimized) when it appears, or not.
+
+<b>Shade:</b> Make the window shaded (title bar only) when it appears, or not.
+
+<b>Fullscreen:</b> Make the window fullscreen when it appears.
+
+<b>Maximize:</b> Horizontal, Vertical, or Both. \
+Note: "Both" is stored as "yes" in rc.xml.
+
+<b>Layer:</b> Set the stacking layer: Above, Normal, or Below.
+
+<b>Position:</b> Where the window opens. X and Y accept a pixel value or "center"; \
+negative values measure from the right or bottom edge. \
+Both X and Y must be set for position to take effect. \
+Force overrides applications that ignore position hints. \
+Monitor specifies the target display (1 = first, or "mouse").
+
+<b>Desktop:</b> Which desktop the window opens on. 1 is the first desktop; \
+use "all" to show on all desktops.
+
+<b>Skip pager:</b> Ask not to be shown in pagers.
+
+<b>Skip taskbar:</b> Ask not to be shown in taskbars; \
+window cycling (Alt+Tab) will also skip the window.
+
+Click Apply to save changes to rc.xml and signal Openbox to reload immediately."""
+
+
+
+class HelpWindow(Gtk.Window):
+    def __init__(self, parent):
+        super().__init__(title="Help", transient_for=parent)
+        self.set_default_size(520, 500)
+        self.set_border_width(8)
+        px, py = parent.get_position()
+        pw = parent.get_size()[0]
+        self.move(px + pw + 8, py)
+
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
+        self.add(vbox)
+
+        scroll = Gtk.ScrolledWindow()
+        scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+
+        label = Gtk.Label()
+        label.set_markup(HELP_TEXT)
+        label.set_line_wrap(True)
+        label.set_xalign(0)
+        label.set_yalign(0)
+        label.set_margin_start(8)
+        label.set_margin_end(8)
+        label.set_margin_top(8)
+        label.set_margin_bottom(8)
+        scroll.add(label)
+
+        vbox.pack_start(scroll, True, True, 0)
+
+        bbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        btn_close = Gtk.Button(label="Close")
+        btn_close.connect("clicked", lambda w: self.destroy())
+        bbox.pack_end(btn_close, False, False, 0)
+        vbox.pack_start(bbox, False, False, 0)
+
+        self.show_all()
+
+
 class WLFrame(Gtk.Window):
     def __init__(self):
         super().__init__(title="OBApps4")
@@ -500,6 +586,10 @@ class WLFrame(Gtk.Window):
         btn_about = Gtk.Button(label="About")
         btn_about.connect("clicked", self._on_about)
         bbox.pack_start(btn_about, False, False, 0)
+
+        btn_help = Gtk.Button(label="Help")
+        btn_help.connect("clicked", self._on_help)
+        bbox.pack_start(btn_help, False, False, 0)
 
         btn_apply = Gtk.Button(label="Apply")
         btn_apply.connect("clicked", self._on_apply)
@@ -528,6 +618,9 @@ class WLFrame(Gtk.Window):
         self.model = OBAppsModel(path, rc_file)
         rc_file.close()
         self.appsel.set_model(self.model)
+
+    def _on_help(self, button):
+        HelpWindow(self)
 
     def _on_about(self, button):
         dlg = Gtk.AboutDialog(parent=self)

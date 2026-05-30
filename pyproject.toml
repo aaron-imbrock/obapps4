@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "obapps4"
-version = "0.2.7"
-description = "Graphical editor for Openbox application settings"
+version = "0.3.2"
+description = "An updated graphical editor for Openbox application settings"
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [

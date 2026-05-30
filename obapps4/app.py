@@ -492,6 +492,9 @@ Use the Pick button to click a running window and auto-fill its identity fields
 (Name, Class, Role, Title, Type). Leave any field blank to match anything.
 Wildcards * and ? are supported in name, class, role, and title fields.
 
+<b>NA</b> omits the setting from rc.xml; Openbox uses its default behavior. \
+<b>No</b> writes the setting explicitly, actively suppressing the feature. \
+
 <b>Application Fields</b>
 
 <b>Focus:</b> Whether Openbox tries to give the window focus when it appears.

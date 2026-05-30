@@ -17,10 +17,14 @@ sudo apt install libgirepository-2.0-dev libcairo2-dev pkg-config python3-dev gi
 sudo pacman -S gobject-introspection gtk3 cairo pkgconf
 ```
 
-## Install
+## Install and Upgrade
 
 ```bash
+# Install
 uv tool install git+https://github.com/aaron-imbrock/obapps4
+
+# Upgrade
+uv tool upgrade obapps4
 ```
 
 Or from a local clone:

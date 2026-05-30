@@ -479,7 +479,7 @@ class OBAppsModel:
 
 class WLFrame(Gtk.Window):
     def __init__(self):
-        super().__init__(title="OBApps3")
+        super().__init__(title="OBApps4")
         self.set_border_width(5)
         self.connect("delete-event", Gtk.main_quit)
 
